@@ -56,11 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 2. STICKY NAVBAR & ACTIVE SCROLL SPY
+  // 2. STICKY NAVBAR & SCROLL EFFECTS
   // ==========================================================================
   const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-  const sections = document.querySelectorAll('section[id]');
   const backToTopBtn = document.getElementById('backToTopBtn');
 
   function handleScroll() {
@@ -79,23 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       backToTopBtn.classList.remove('show');
     }
-
-    // Scroll spy for active navigation item
-    let currentActiveSection = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.offsetHeight;
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        currentActiveSection = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentActiveSection}`) {
-        link.classList.add('active');
-      }
-    });
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
@@ -124,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const isOpen = mobileNavDrawer.classList.toggle('open');
     mobileMenuBtn.classList.toggle('active');
     mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    const overlay = document.getElementById('mobileOverlay');
+    if (overlay) overlay.classList.toggle('open');
     document.body.style.overflow = isOpen ? 'hidden' : '';
   }
 
@@ -131,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileNavDrawer.classList.remove('open');
     mobileMenuBtn.classList.remove('active');
     mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    const overlay = document.getElementById('mobileOverlay');
+    if (overlay) overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
 
@@ -143,6 +128,18 @@ document.addEventListener('DOMContentLoaded', () => {
         closeMobileMenu();
       });
     });
+
+    // Close on close button click
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+    if (mobileCloseBtn) {
+      mobileCloseBtn.addEventListener('click', closeMobileMenu);
+    }
+
+    // Close on overlay click
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    if (mobileOverlay) {
+      mobileOverlay.addEventListener('click', closeMobileMenu);
+    }
   }
 
   // Mobile Services Accordion
@@ -283,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.beginPath();
             ctx.moveTo(projected[i].x, projected[i].y);
             ctx.lineTo(projected[j].x, projected[j].y);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(37, 99, 235, ${lineAlpha})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -295,13 +292,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Outer glow
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius * 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 168, 255, ${p.alpha * 0.25})`;
+        ctx.fillStyle = `rgba(37, 99, 235, ${p.alpha * 0.2})`;
         ctx.fill();
 
         // Inner solid node
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha * 0.95})`;
+        ctx.fillStyle = `rgba(37, 99, 235, ${p.alpha * 0.6})`;
         ctx.fill();
       });
 
@@ -347,51 +344,6 @@ document.addEventListener('DOMContentLoaded', () => {
       closeAboutModal();
     });
   }
-
-  // Job Application Modal
-  const jobModal = document.getElementById('jobModal');
-  const closeJobModalBtn = document.getElementById('closeJobModalBtn');
-  const jobModalBackdrop = document.getElementById('jobModalBackdrop');
-  const modalJobPosition = document.getElementById('modalJobPosition');
-  const applyJobBtns = document.querySelectorAll('.btn-apply-job');
-  const jobApplicationForm = document.getElementById('jobApplicationForm');
-  const jobSuccessBox = document.getElementById('jobSuccessBox');
-
-  function openJobModal(jobTitle) {
-    if (jobModal) {
-      if (modalJobPosition) modalJobPosition.value = jobTitle || 'Digital Marketing Specialist';
-      if (jobSuccessBox) jobSuccessBox.classList.remove('show');
-      jobModal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closeJobModal() {
-    if (jobModal) {
-      jobModal.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  }
-
-  applyJobBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const title = this.getAttribute('data-job') || this.closest('.job-card').querySelector('.job-title').textContent;
-      openJobModal(title);
-    });
-  });
-
-  if (closeJobModalBtn) closeJobModalBtn.addEventListener('click', closeJobModal);
-  if (jobModalBackdrop) jobModalBackdrop.addEventListener('click', closeJobModal);
-
-  // Global ESC Key Closes Any Open Modal
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeAboutModal();
-      closeJobModal();
-      closeMobileMenu();
-    }
-  });
-
 
   // ==========================================================================
   // 7. CLIENT-SIDE VALIDATION FOR CONTACT FORM
@@ -556,6 +508,111 @@ document.addEventListener('DOMContentLoaded', () => {
           jobApplicationForm.reset();
         }
       }, 700);
+    });
+  }
+
+  // ==========================================================================
+  // PARTICLES ANIMATION
+  // ==========================================================================
+  const particlesCanvas = document.getElementById('particlesCanvas');
+  if (particlesCanvas) {
+    const ctx = particlesCanvas.getContext('2d');
+    let particles = [];
+    let animationId;
+
+    function resizeCanvas() {
+      const section = particlesCanvas.parentElement;
+      particlesCanvas.width = section.offsetWidth;
+      particlesCanvas.height = section.offsetHeight;
+    }
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * particlesCanvas.width;
+        this.y = Math.random() * particlesCanvas.height;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.4 + 0.1;
+        this.fadeSpeed = Math.random() * 0.005 + 0.002;
+        this.fadingIn = Math.random() > 0.5;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.fadingIn) {
+          this.opacity += this.fadeSpeed;
+          if (this.opacity >= 0.5) this.fadingIn = false;
+        } else {
+          this.opacity -= this.fadeSpeed;
+          if (this.opacity <= 0.05) this.fadingIn = true;
+        }
+
+        if (this.x < 0 || this.x > particlesCanvas.width ||
+            this.y < 0 || this.y > particlesCanvas.height) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(37, 99, 235, ${this.opacity * 0.6})`;
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      const count = Math.min(60, Math.floor((particlesCanvas.width * particlesCanvas.height) / 15000));
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function connectParticles() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            const opacity = (1 - dist / 120) * 0.08;
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(37, 99, 235, ${opacity * 0.6})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      connectParticles();
+      animationId = requestAnimationFrame(animateParticles);
+    }
+
+    resizeCanvas();
+    initParticles();
+    animateParticles();
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initParticles();
     });
   }
 
