@@ -456,6 +456,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   // 8. CLIENT-SIDE VALIDATION FOR JOB APPLICATION FORM
   // ==========================================================================
+  const jobApplicationForm = document.getElementById('jobApplicationForm');
+  const jobSuccessBox = document.getElementById('jobSuccessBox');
   if (jobApplicationForm) {
     const applicantName = document.getElementById('applicantName');
     const applicantEmail = document.getElementById('applicantEmail');
@@ -615,5 +617,95 @@ document.addEventListener('DOMContentLoaded', () => {
       initParticles();
     });
   }
+
+
+  // ==========================================================================
+  // LOCATION MAP SHOWCASE SWITCHER
+  // ==========================================================================
+  const officeLocations = {
+    hyderabad: {
+      title: "Madhapur, Hyderabad",
+      subtitle: "Telangana, India • Registered Headquarters",
+      hours: "Working Hours: Mon – Sat | 9:30 AM – 7:00 PM IST",
+      directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Second+Floor,+Samridhi+Vasyam,+D+No+1%2F98%2F9%2F3%2F23,+Capital+Pk+Rd,+beside+Narayana+High+School,+Cyber+Hills+Colony,+VIP+Hills,+Jaihind+Enclave,+Madhapur,+Hyderabad,+Telangana+500081",
+      embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.326500057038!2d78.38421867591656!3d17.444078701168175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5d69df%3A0x19688ebb557fa321!2sMadhapur%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+      dotClass: "map-dot"
+    },
+    vijayawada: {
+      title: "Vijayawada, NTR District",
+      subtitle: "Andhra Pradesh, India • Regional Office",
+      hours: "Working Hours: Mon – Sat | 9:30 AM – 7:00 PM IST",
+      directionsUrl: "https://www.google.com/maps/search/D.No.+24-29-210A,+Durgapuram,+Gulabithota+Road,+Vijayawada,+NTR+District,+Andhra+Pradesh+520003",
+      embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61205.47414902251!2d80.612025!3d16.506174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35eff9482d944b%3A0x939b7e84ab4a0265!2sVijayawada%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+      dotClass: "map-dot map-dot--alt"
+    },
+    southafrica: {
+      title: "Newcastle, KwaZulu-Natal",
+      subtitle: "South Africa • International Branch (PTY LTD)",
+      hours: "Working Hours: Mon – Sat | 9:30 AM – 7:00 PM SAST",
+      directionsUrl: "https://www.google.com/maps/search/Unit+11+Sunset+View+10+Hazy+Street+Newcastle+Kwa-Zulu+Natal+2930+South+Africa",
+      embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56466.50741273015!2d29.928!3d-27.747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef467a34b1a70e3%3A0x1597d6d96e6b20c6!2sNewcastle%2C%20KwaZulu-Natal!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza",
+      dotClass: "map-dot"
+    }
+  };
+
+  const activeMapTitle = document.getElementById('activeMapTitle');
+  const activeMapSubtitle = document.getElementById('activeMapSubtitle');
+  const activeMapHours = document.getElementById('activeMapHours');
+  const activeMapLink = document.getElementById('activeMapLink');
+  const activeDirectionsBtn = document.getElementById('activeDirectionsBtn');
+  const activeMapIframe = document.getElementById('activeMapIframe');
+  const activeMapDot = document.getElementById('activeMapDot');
+  const officeCards = document.querySelectorAll('.location-office-card');
+  const mapTabBtns = document.querySelectorAll('.map-tab-btn');
+
+  window.switchOfficeLocation = switchOfficeLocation;
+  function switchOfficeLocation(locKey) {
+    const loc = officeLocations[locKey];
+    if (!loc) return;
+
+    if (activeMapTitle) activeMapTitle.textContent = loc.title;
+    if (activeMapSubtitle) activeMapSubtitle.textContent = loc.subtitle;
+    if (activeMapHours) activeMapHours.textContent = loc.hours;
+    if (activeMapLink) activeMapLink.href = loc.directionsUrl;
+    if (activeDirectionsBtn) activeDirectionsBtn.href = loc.directionsUrl;
+    if (activeMapIframe && activeMapIframe.src !== loc.embedUrl) {
+      activeMapIframe.src = loc.embedUrl;
+    }
+    if (activeMapDot) activeMapDot.className = loc.dotClass;
+
+    officeCards.forEach(card => {
+      card.classList.toggle('active', card.getAttribute('data-location') === locKey);
+    });
+
+    mapTabBtns.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-target') === locKey);
+    });
+  }
+
+  officeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const locKey = card.getAttribute('data-location');
+      switchOfficeLocation(locKey);
+      const showcase = document.querySelector('.map-showcase-card');
+      if (showcase && window.innerWidth <= 768) {
+        showcase.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const locKey = card.getAttribute('data-location');
+        switchOfficeLocation(locKey);
+      }
+    });
+  });
+
+  mapTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-target');
+      switchOfficeLocation(target);
+    });
+  });
 
 });

@@ -963,160 +963,162 @@
   <!-- LOCATION SECTION -->
   <section id="location" class="location-section">
     <div class="container">
-      <div class="location-grid">
+      
+      <!-- Section Header -->
+      <div class="location-header-center">
+        <div class="location-badge">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>OUR LOCATIONS</span>
+        </div>
+        <h2 class="location-title">Visit Our <span class="gradient-text">Global Offices</span></h2>
+        <p class="location-desc">We are an international digital growth agency with operational hubs across India and South Africa. Select an office below to explore location details, working hours, and driving directions.</p>
+      </div>
 
-        <!-- LEFT: Location Info -->
-        <div class="location-info-col">
-          <div class="location-badge">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>OUR LOCATION</span>
+      <!-- 3 Office Cards Grid -->
+      <div class="location-cards-grid">
+        
+        <!-- Card 1: Hyderabad -->
+        <div class="location-office-card active" data-location="hyderabad" onclick="switchOfficeLocation('hyderabad')" tabindex="0" role="button" aria-label="Select Hyderabad Registered Headquarters">
+          <div class="office-card-header">
+            <span class="office-card-pill">REGISTERED HQ</span>
+            <span class="active-indicator">Viewing</span>
           </div>
-          <h2 class="location-title">Visit Our <span class="gradient-text">Offices</span></h2>
-          <p class="location-desc">We are a global digital marketing agency with offices across India (Hyderabad &amp; Vijayawada) and South Africa. Reach out for consultations, partnerships, or project kickoffs at any of our locations.</p>
-
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Second+Floor,+Samridhi+Vasyam,+D+No+1%2F98%2F9%2F3%2F23,+Capital+Pk+Rd,+beside+Narayana+High+School,+Cyber+Hills+Colony,+VIP+Hills,+Jaihind+Enclave,+Madhapur,+Hyderabad,+Telangana+500081" target="_blank" rel="noopener noreferrer" class="location-address-card">
-            <div class="address-icon-wrap">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#2563eb" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="office-card-main">
+            <div class="office-card-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#2563eb" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-            <div class="address-content">
-              <span class="address-label">REGISTERED OFFICE</span>
-              <address class="address-full">
-                SBR Towers, Axis bank building,<br>
-                Second Floor, D No 1/98/93/23,<br>
-                HUDA Tecno Encalve Cyber Hills Colony,<br>
-                VIP Hills, Jaihind Enclave, Madhapur,<br>
-                Hyderabad, Telangana 500081
-              </address>
+            <div>
+              <h3 class="office-card-title">Madhapur, Hyderabad</h3>
+              <p class="office-card-city">Telangana, India</p>
             </div>
-          </a>
-
-          <a href="https://www.google.com/maps/search/Unit+11+Sunset+View+10+Hazy+Street+Newcastle+Kwa-Zulu+Natal+2930+South+Africa" target="_blank" rel="noopener noreferrer" class="location-address-card">
-            <div class="address-icon-wrap address-icon-wrap--alt">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#2563eb" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <address class="office-card-address">
+            SBR Towers, Axis bank building,<br>
+            Second Floor, D No 1/98/93/23,<br>
+            HUDA Tecno Encalve Cyber Hills Colony,<br>
+            VIP Hills, Jaihind Enclave, Madhapur,<br>
+            Hyderabad, Telangana 500081
+          </address>
+          <div class="office-card-footer">
+            <div class="office-card-hours">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Mon – Sat | 9:30 AM – 7:00 PM IST</span>
             </div>
-            <div class="address-content">
-              <span class="address-label">BRANCH OFFICE</span>
-              <address class="address-full">
-                OKLUT TECHNOLOGIES (PTY) LTD<br>
-                Unit 11, Sunset View, 10 Hazy Street,<br>
-                Newcastle, Kwa-Zulu Natal, 2930,<br>
-                South Africa
-              </address>
-            </div>
-          </a>
-
-          <a href="https://www.google.com/maps/search/D.No.+24-29-210A,+Durgapuram,+Gulabithota+Road,+Vijayawada,+NTR+District,+Andhra+Pradesh+520003" target="_blank" rel="noopener noreferrer" class="location-address-card">
-            <div class="address-icon-wrap address-icon-wrap--alt">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#2563eb" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div class="address-content">
-              <span class="address-label">VIJAYAWADA OFFICE</span>
-              <address class="address-full">
-                D.No. 24-29-210A, Durgapuram,<br>
-                Gulabithota Road, Vijayawada,<br>
-                NTR District, Andhra Pradesh – 520003
-              </address>
-            </div>
-          </a>
+            <span class="office-card-action">View Map &rarr;</span>
+          </div>
         </div>
 
-        <!-- RIGHT: Map Cards -->
-        <div class="location-map-col">
-          <div class="map-card">
-            <div class="map-card-header">
-              <div class="map-card-title-group">
-                <span class="map-dot"></span>
-                <div>
-                  <h4 class="map-card-title">Newcastle, KwaZulu Natal</h4>
-                  <p class="map-card-subtitle">South Africa</p>
-                </div>
-              </div>
-              <a href="https://www.google.com/maps/search/Unit+11+Sunset+View+10+Hazy+Street+Newcastle+Kwa-Zulu+Natal+2930+South+Africa" target="_blank" rel="noopener noreferrer" class="map-open-link">
-                <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-              </a>
+        <!-- Card 2: Vijayawada -->
+        <div class="location-office-card" data-location="vijayawada" onclick="switchOfficeLocation('vijayawada')" tabindex="0" role="button" aria-label="Select Vijayawada Regional Office">
+          <div class="office-card-header">
+            <span class="office-card-pill office-card-pill--green">REGIONAL OFFICE</span>
+            <span class="active-indicator">Viewing</span>
+          </div>
+          <div class="office-card-main">
+            <div class="office-card-icon office-card-icon--green">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#059669" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-            <div class="map-embed-wrap">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56466.50741273015!2d29.928!3d-27.747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef467a34b1a70e3%3A0x1597d6d96e6b20c6!2sNewcastle%2C%20KwaZulu-Natal!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" 
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade" 
-                title="OKLUT Office Location Map - Newcastle, KwaZulu Natal, South Africa">
-              </iframe>
+            <div>
+              <h3 class="office-card-title">Vijayawada, NTR District</h3>
+              <p class="office-card-city">Andhra Pradesh, India</p>
             </div>
-            <div class="map-card-footer">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <address class="office-card-address">
+            D.No. 24-29-210A, Durgapuram,<br>
+            Gulabithota Road, Vijayawada,<br>
+            NTR District, Andhra Pradesh – 520003
+          </address>
+          <div class="office-card-footer">
+            <div class="office-card-hours">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Mon – Sat | 9:30 AM – 7:00 PM IST</span>
+            </div>
+            <span class="office-card-action">View Map &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Newcastle, South Africa -->
+        <div class="location-office-card" data-location="southafrica" onclick="switchOfficeLocation('southafrica')" tabindex="0" role="button" aria-label="Select South Africa Office">
+          <div class="office-card-header">
+            <span class="office-card-pill office-card-pill--cyan">INTERNATIONAL BRANCH</span>
+            <span class="active-indicator">Viewing</span>
+          </div>
+          <div class="office-card-main">
+            <div class="office-card-icon office-card-icon--cyan">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#0891b2" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h3 class="office-card-title">Newcastle, KwaZulu-Natal</h3>
+              <p class="office-card-city">South Africa</p>
+            </div>
+          </div>
+          <address class="office-card-address">
+            OKLUT TECHNOLOGIES (PTY) LTD<br>
+            Unit 11, Sunset View, 10 Hazy Street,<br>
+            Newcastle, Kwa-Zulu Natal, 2930,<br>
+            South Africa
+          </address>
+          <div class="office-card-footer">
+            <div class="office-card-hours">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               <span>Mon – Sat | 9:30 AM – 7:00 PM SAST</span>
             </div>
-          </div>
-
-          <div class="map-card">
-            <div class="map-card-header">
-              <div class="map-card-title-group">
-                <span class="map-dot map-dot--alt"></span>
-                <div>
-                  <h4 class="map-card-title">Madhapur, Hyderabad</h4>
-                  <p class="map-card-subtitle">Telangana, India</p>
-                </div>
-              </div>
-              <a href="https://www.google.com/maps/dir/?api=1&destination=Second+Floor,+Samridhi+Vasyam,+D+No+1%2F98%2F9%2F3%2F23,+Capital+Pk+Rd,+beside+Narayana+High+School,+Cyber+Hills+Colony,+VIP+Hills,+Jaihind+Enclave,+Madhapur,+Hyderabad,+Telangana+500081" target="_blank" rel="noopener noreferrer" class="map-open-link">
-                <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-              </a>
-            </div>
-            <div class="map-embed-wrap">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.326500057038!2d78.38421867591656!3d17.444078701168175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5d69df%3A0x19688ebb557fa321!2sMadhapur%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade" 
-                title="OKLUT Office Location Map - Madhapur, Hyderabad, India">
-              </iframe>
-            </div>
-            <div class="map-card-footer">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>Mon – Sat | 9:30 AM – 7:00 PM IST</span>
-            </div>
-          </div>
-
-          <div class="map-card">
-            <div class="map-card-header">
-              <div class="map-card-title-group">
-                <span class="map-dot map-dot--alt"></span>
-                <div>
-                  <h4 class="map-card-title">Vijayawada, NTR District</h4>
-                  <p class="map-card-subtitle">Andhra Pradesh, India</p>
-                </div>
-              </div>
-              <a href="https://www.google.com/maps/search/D.No.+24-29-210A,+Durgapuram,+Gulabithota+Road,+Vijayawada,+NTR+District,+Andhra+Pradesh+520003" target="_blank" rel="noopener noreferrer" class="map-open-link">
-                <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-              </a>
-            </div>
-            <div class="map-embed-wrap">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61205.47414902251!2d80.612025!3d16.506174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35eff9482d944b%3A0x939b7e84ab4a0265!2sVijayawada%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade" 
-                title="OKLUT Office Location Map - Vijayawada, Andhra Pradesh, India">
-              </iframe>
-            </div>
-            <div class="map-card-footer">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>Mon – Sat | 9:30 AM – 7:00 PM IST</span>
-            </div>
+            <span class="office-card-action">View Map &rarr;</span>
           </div>
         </div>
 
       </div>
+
+      <!-- Large Spacious Showcase Map Card -->
+      <div class="map-showcase-card">
+        <div class="map-showcase-header">
+          <div class="map-card-title-group">
+            <span class="map-dot" id="activeMapDot"></span>
+            <div>
+              <h4 class="map-card-title" id="activeMapTitle">Madhapur, Hyderabad</h4>
+              <p class="map-card-subtitle" id="activeMapSubtitle">Telangana, India • Registered Headquarters</p>
+            </div>
+          </div>
+          <div class="map-showcase-actions">
+            <div class="map-location-tabs">
+              <button class="map-tab-btn active" data-target="hyderabad" onclick="switchOfficeLocation('hyderabad')">Hyderabad</button>
+              <button class="map-tab-btn" data-target="vijayawada" onclick="switchOfficeLocation('vijayawada')">Vijayawada</button>
+              <button class="map-tab-btn" data-target="southafrica" onclick="switchOfficeLocation('southafrica')">South Africa</button>
+            </div>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Second+Floor,+Samridhi+Vasyam,+D+No+1%2F98%2F9%2F3%2F23,+Capital+Pk+Rd,+beside+Narayana+High+School,+Cyber+Hills+Colony,+VIP+Hills,+Jaihind+Enclave,+Madhapur,+Hyderabad,+Telangana+500081" 
+               target="_blank" rel="noopener noreferrer" class="map-open-link" id="activeMapLink" title="Open in Google Maps">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="map-embed-wrap map-embed-wrap--spacious">
+          <iframe 
+            id="activeMapIframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.326500057038!2d78.38421867591656!3d17.444078701168175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5d69df%3A0x19688ebb557fa321!2sMadhapur%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade" 
+            title="OKLUT Active Office Location Map">
+          </iframe>
+        </div>
+
+        <div class="map-card-footer map-card-footer--spacious">
+          <div class="map-footer-left">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span id="activeMapHours">Working Hours: Mon – Sat | 9:30 AM – 7:00 PM IST</span>
+          </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Second+Floor,+Samridhi+Vasyam,+D+No+1%2F98%2F9%2F3%2F23,+Capital+Pk+Rd,+beside+Narayana+High+School,+Cyber+Hills+Colony,+VIP+Hills,+Jaihind+Enclave,+Madhapur,+Hyderabad,+Telangana+500081" 
+             target="_blank" rel="noopener noreferrer" class="btn-get-directions" id="activeDirectionsBtn">
+            <span>Get Directions</span>
+            <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1369,6 +1371,6 @@
   </button>
 
   <!-- JavaScript -->
-  <script src="script.js"></script>
+  <script src="script.js?v=2.0"></script>
 </body>
 </html>
