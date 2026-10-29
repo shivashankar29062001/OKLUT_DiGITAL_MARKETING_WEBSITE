@@ -932,14 +932,15 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
           <h4 class="footer-heading">Contact</h4>
           <ul class="footer-links">
             <li><a href="mailto:info@oklut.com">info@oklut.com</a></li>
-            <li><a href="tel:+919876543210">+91 98765 43210</a></li>
-            <li><a href="#">Madhapur, Hyderabad, India</a></li>
-            <li><a href="#">Newcastle, KwaZulu-Natal, South Africa</a></li>
+            <li><a href="tel:+919014217124">+91-9014217124</a></li>
+            <li><a href="../index.html#location">Madhapur, Hyderabad, India</a></li>
+            <li><a href="../index.html#location">Vijayawada, Andhra Pradesh, India</a></li>
+            <li><a href="../index.html#location">Newcastle, KwaZulu-Natal, South Africa</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2024 OKLUT Innovative & Digital Excellence. All rights reserved.
+        &copy; 2026 OKLUT Innovative & Digital Excellence. All rights reserved.
       </div>
     </div>
   </footer>
@@ -1063,6 +1064,9 @@ def main():
         html_content = generate_service_page(service_key, service_data)
 
         with open(code_html_path, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        index_html_path = os.path.join(service_dir, "index.html")
+        with open(index_html_path, 'w', encoding='utf-8') as f:
             f.write(html_content)
 
         print(f"Generated: {service_key}/code.html")

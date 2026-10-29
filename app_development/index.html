@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Development | OKLUT Digital Excellence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../service-premium.css">
+</head>
+<body>
+
+  <!-- Ambient Background -->
+  <div class="ambient-bg"></div>
+  <div class="grid-overlay"></div>
+  <canvas id="particlesCanvas" class="particles-canvas"></canvas>
+
+  <!-- Navbar -->
+  <nav class="service-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <img src="../logo.png" alt="OKLUT" class="nav-logo">
+      </a>
+      <a href="../index.html" class="nav-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Home
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="service-hero">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-grid"></div>
+    <div class="service-container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Mobile Apps
+          </div>
+          <h1 class="hero-title">Build Powerful Apps With <span class="gradient-text">Mobile Development</span></h1>
+          <p class="hero-description">Native and cross-platform mobile applications that deliver exceptional user experiences. From concept to App Store, we build apps that scale.</p>
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn-premium btn-premium-primary">Build Your App</a>
+            <a href="#features" class="btn-premium btn-premium-outline">View Apps</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-value" data-count="50" data-suffix="+">50+</span>
+              <span class="hero-stat-label">Apps Launched</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-value" data-count="4.8" data-suffix="">4.8</span>
+              <span class="hero-stat-label">Avg App Rating</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-value">1M+</span>
+              <span class="hero-stat-label">Downloads</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-frame">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="Mobile App Development" class="hero-image">
+            <div class="hero-image-overlay"></div>
+          </div>
+          <div class="floating-badge top-left">
+            <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></svg></div>
+            <div class="badge-text">
+              <span class="badge-label">Apps Built</span>
+              <span class="badge-value">50+</span>
+            </div>
+          </div>
+          <div class="floating-badge bottom-right">
+            <div class="badge-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div class="badge-text">
+              <span class="badge-label">Performance</span>
+              <span class="badge-value">Real-time</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="service-section" id="overview">
+    <div class="service-container">
+      <div class="section-header reveal">
+        <span class="section-badge">Service Overview</span>
+        <h2 class="section-title">Apps That Users Love</h2>
+        <p class="section-subtitle">We craft mobile experiences that delight users and drive business results. Every interaction is designed for maximum engagement and retention.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="service-section" id="features">
+    <div class="service-container">
+      <div class="section-header reveal">
+        <span class="section-badge">What We Deliver</span>
+        <h2 class="section-title">Key <span class="gradient-text">Capabilities</span></h2>
+        <p class="section-subtitle">Comprehensive solutions designed to drive measurable results for your business.</p>
+      </div>
+      <div class="features-grid reveal">
+                <div class="glass-card">
+          <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></svg></div>
+          <h3>iOS Development</h3>
+          <p>Native Swift/SwiftUI apps optimized for Apple ecosystem.</p>
+        </div>
+        <div class="glass-card">
+          <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></svg></div>
+          <h3>Android Development</h3>
+          <p>Kotlin/Jetpack Compose apps for the Android ecosystem.</p>
+        </div>
+        <div class="glass-card">
+          <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Cross-Platform</h3>
+          <p>React Native/Flutter apps for both platforms simultaneously.</p>
+        </div>
+        <div class="glass-card">
+          <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <h3>Backend & APIs</h3>
+          <p>Robust backend systems and RESTful/GraphQL APIs.</p>
+        </div>
+        <div class="glass-card">
+          <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>App Store Optimization</h3>
+          <p>ASO strategies to maximize visibility and downloads.</p>
+        </div>
+        <div class="glass-card">
+          <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <h3>Analytics Integration</h3>
+          <p>Comprehensive tracking and user behavior analytics.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="service-section" id="process">
+    <div class="service-container">
+      <div class="section-header reveal">
+        <span class="section-badge">Our Process</span>
+        <h2 class="section-title">How We <span class="gradient-text">Deliver</span></h2>
+        <p class="section-subtitle">A proven methodology that ensures consistent, high-quality results.</p>
+      </div>
+      <div class="process-steps reveal">
+                <div class="process-step">
+          <div class="process-step-number">01</div>
+          <h3>Strategy & Design</h3>
+          <p>Wireframing, UI/UX design, and technical architecture planning.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-number">02</div>
+          <h3>Development & Testing</h3>
+          <p>Agile development with continuous testing and quality assurance.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-number">03</div>
+          <h3>Launch & Growth</h3>
+          <p>App Store submission, marketing support, and ongoing updates.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section class="service-section" id="technologies">
+    <div class="service-container">
+      <div class="section-header reveal">
+        <span class="section-badge">Technologies</span>
+        <h2 class="section-title">Tools & <span class="gradient-text">Technologies</span></h2>
+        <p class="section-subtitle">We leverage industry-leading tools to deliver exceptional results.</p>
+      </div>
+      <div class="tech-tags reveal">
+                <span class="tech-tag">Swift</span>
+        <span class="tech-tag">Kotlin</span>
+        <span class="tech-tag">React Native</span>
+        <span class="tech-tag">Flutter</span>
+        <span class="tech-tag">Firebase</span>
+        <span class="tech-tag">AWS</span>
+        <span class="tech-tag">Figma</span>
+        <span class="tech-tag">Xcode</span>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="service-section" id="stats">
+    <div class="service-container">
+      <div class="stats-grid reveal">
+                <div class="stat-card">
+          <div class="stat-value">50+</div>
+          <div class="stat-label">Apps Launched</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">4.8</div>
+          <div class="stat-label">Avg Rating</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">1M+</div>
+          <div class="stat-label">Downloads</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">99%</div>
+          <div class="stat-label">Success Rate</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="contact">
+    <div class="service-container">
+      <div class="reveal">
+        <span class="section-badge">Get Started</span>
+        <h2 class="cta-title">Ready to <span class="gradient-text">Transform</span> Your Business?</h2>
+        <p class="cta-description">Let's discuss how our app development services can help you achieve your goals and drive measurable growth.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="../index.html#contact" class="btn-premium btn-premium-primary">Talk to an Expert</a>
+          <a href="mailto:info@oklut.com" class="btn-premium btn-premium-outline">Email Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="service-footer">
+    <div class="service-container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">OKLUT</div>
+          <div class="footer-brand-tag">Innovative & Digital Excellence</div>
+          <p class="footer-desc">Elite digital marketing and technology solutions agency engineering sustainable growth for high-growth enterprises.</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#about">About Us</a></li>
+            <li><a href="../index.html#careers">Careers</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="../SEO/code.html">SEO</a></li>
+            <li><a href="../performance/code.html">Performance Marketing</a></li>
+            <li><a href="../social/code.html">Social Media</a></li>
+            <li><a href="../web/code.html">Web Development</a></li>
+            <li><a href="../AI_code/code.html">AI Solutions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:info@oklut.com">info@oklut.com</a></li>
+            <li><a href="tel:+919014217124">+91-9014217124</a></li>
+            <li><a href="../index.html#location">Madhapur, Hyderabad, India</a></li>
+            <li><a href="../index.html#location">Vijayawada, Andhra Pradesh, India</a></li>
+            <li><a href="../index.html#location">Newcastle, KwaZulu-Natal, South Africa</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 OKLUT Innovative & Digital Excellence. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../service-premium.js"></script>
+</body>
+</html>

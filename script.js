@@ -669,10 +669,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (activeMapHours) activeMapHours.textContent = loc.hours;
     if (activeMapLink) activeMapLink.href = loc.directionsUrl;
     if (activeDirectionsBtn) activeDirectionsBtn.href = loc.directionsUrl;
-    if (activeMapIframe && activeMapIframe.src !== loc.embedUrl) {
+    if (activeMapDot) activeMapDot.className = loc.dotClass;
+
+    // Instantly toggle multi-iframe active state
+    const iframes = document.querySelectorAll('.office-map-iframe');
+    if (iframes.length > 0) {
+      iframes.forEach(iframe => {
+        iframe.classList.remove('active');
+      });
+      const targetIframe = document.getElementById('iframe-' + locKey);
+      if (targetIframe) {
+        targetIframe.classList.add('active');
+      }
+    } else if (activeMapIframe && activeMapIframe.src !== loc.embedUrl) {
       activeMapIframe.src = loc.embedUrl;
     }
-    if (activeMapDot) activeMapDot.className = loc.dotClass;
 
     officeCards.forEach(card => {
       card.classList.toggle('active', card.getAttribute('data-location') === locKey);
