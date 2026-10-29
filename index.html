@@ -1069,7 +1069,7 @@
 
       </div>
 
-      <!-- Large Spacious Showcase Map Card -->
+      <!-- Large Spacious Showcase Map Card with 3 Pre-rendered Iframes -->
       <div class="map-showcase-card">
         <div class="map-showcase-header">
           <div class="map-card-title-group">
@@ -1093,8 +1093,10 @@
         </div>
 
         <div class="map-embed-wrap map-embed-wrap--spacious">
+          <!-- 1. Hyderabad Map -->
           <iframe 
-            id="activeMapIframe"
+            id="iframe-hyderabad"
+            class="office-map-iframe active"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.326500057038!2d78.38421867591656!3d17.444078701168175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5d69df%3A0x19688ebb557fa321!2sMadhapur%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
             width="100%" 
             height="100%" 
@@ -1102,7 +1104,35 @@
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade" 
-            title="OKLUT Active Office Location Map">
+            title="OKLUT Madhapur Hyderabad Office Location Map">
+          </iframe>
+
+          <!-- 2. Vijayawada Map -->
+          <iframe 
+            id="iframe-vijayawada"
+            class="office-map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61205.47414902251!2d80.612025!3d16.506174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35eff9482d944b%3A0x939b7e84ab4a0265!2sVijayawada%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade" 
+            title="OKLUT Vijayawada Office Location Map">
+          </iframe>
+
+          <!-- 3. South Africa Map -->
+          <iframe 
+            id="iframe-southafrica"
+            class="office-map-iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56466.50741273015!2d29.928!3d-27.747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef467a34b1a70e3%3A0x1597d6d96e6b20c6!2sNewcastle%2C%20KwaZulu-Natal!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade" 
+            title="OKLUT Newcastle South Africa Office Location Map">
           </iframe>
         </div>
 
@@ -1121,6 +1151,81 @@
 
     </div>
   </section>
+
+  <!-- Inline Instant Switcher Script -->
+  <script>
+    function switchOfficeLocation(locKey) {
+      var data = {
+        hyderabad: {
+          title: "Madhapur, Hyderabad",
+          subtitle: "Telangana, India • Registered Headquarters",
+          hours: "Working Hours: Mon – Sat | 9:30 AM – 7:00 PM IST",
+          url: "https://www.google.com/maps/dir/?api=1&destination=Second+Floor,+Samridhi+Vasyam,+D+No+1%2F98%2F9%2F3%2F23,+Capital+Pk+Rd,+beside+Narayana+High+School,+Cyber+Hills+Colony,+VIP+Hills,+Jaihind+Enclave,+Madhapur,+Hyderabad,+Telangana+500081"
+        },
+        vijayawada: {
+          title: "Vijayawada, NTR District",
+          subtitle: "Andhra Pradesh, India • Regional Office",
+          hours: "Working Hours: Mon – Sat | 9:30 AM – 7:00 PM IST",
+          url: "https://www.google.com/maps/search/D.No.+24-29-210A,+Durgapuram,+Gulabithota+Road,+Vijayawada,+NTR+District,+Andhra+Pradesh+520003"
+        },
+        southafrica: {
+          title: "Newcastle, KwaZulu-Natal",
+          subtitle: "South Africa • International Branch (PTY LTD)",
+          hours: "Working Hours: Mon – Sat | 9:30 AM – 7:00 PM SAST",
+          url: "https://www.google.com/maps/search/Unit+11+Sunset+View+10+Hazy+Street+Newcastle+Kwa-Zulu+Natal+2930+South+Africa"
+        }
+      };
+
+      var info = data[locKey];
+      if (!info) return;
+
+      // 1. Instantly switch visible iframe
+      var iframes = document.querySelectorAll('.office-map-iframe');
+      for (var i = 0; i < iframes.length; i++) {
+        iframes[i].classList.remove('active');
+      }
+      var targetIframe = document.getElementById('iframe-' + locKey);
+      if (targetIframe) {
+        targetIframe.classList.add('active');
+      }
+
+      // 2. Update office cards
+      var cards = document.querySelectorAll('.location-office-card');
+      for (var j = 0; j < cards.length; j++) {
+        if (cards[j].getAttribute('data-location') === locKey) {
+          cards[j].classList.add('active');
+        } else {
+          cards[j].classList.remove('active');
+        }
+      }
+
+      // 3. Update tabs
+      var tabs = document.querySelectorAll('.map-tab-btn');
+      for (var k = 0; k < tabs.length; k++) {
+        if (tabs[k].getAttribute('data-target') === locKey) {
+          tabs[k].classList.add('active');
+        } else {
+          tabs[k].classList.remove('active');
+        }
+      }
+
+      // 4. Update Header & Footer details
+      var titleEl = document.getElementById('activeMapTitle');
+      if (titleEl) titleEl.textContent = info.title;
+
+      var subtitleEl = document.getElementById('activeMapSubtitle');
+      if (subtitleEl) subtitleEl.textContent = info.subtitle;
+
+      var hoursEl = document.getElementById('activeMapHours');
+      if (hoursEl) hoursEl.textContent = info.hours;
+
+      var linkEl = document.getElementById('activeMapLink');
+      if (linkEl) linkEl.href = info.url;
+
+      var dirBtn = document.getElementById('activeDirectionsBtn');
+      if (dirBtn) dirBtn.href = info.url;
+    }
+  </script>
 
 
   <!-- Services Section -->
